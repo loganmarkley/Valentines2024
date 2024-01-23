@@ -11,13 +11,12 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(0, 0, 0);
-    animation: gradualColorChange 3000ms forwards ease-in;
+    background-color: rgb(45, 46, 46);
 }
 
 @keyframes gradualColorChange {
     to {
-        background-color: rgb(167, 217, 228);
+        background-color: rgb(114, 205, 226);
     }
 }
 
@@ -28,6 +27,7 @@ body {
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 0 10px 2px;
+    opacity: 0;
 }
 
 .btn-grid {
@@ -37,11 +37,23 @@ body {
     margin-top: 20px;
 }
 
+.btn-grid > :only-child {
+    grid-column: span 2; /* Make the single button span both columns */
+    justify-self: center;
+    background-color: rgb(195, 95, 95);
+    width: 200px;
+}
+
 .btn {
-    background-color: rgb(206, 86, 86);
+    background-color: rgb(37, 36, 36);
     border: 1px solid gray;
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 5px 20px;
     color: white;
     outline: none;
+}
+
+.btn:hover {
+    border-color: black;
+    cursor: pointer;
 }
