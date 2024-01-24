@@ -15,11 +15,14 @@ function startGame() {
 }
 
 function showTextNode(textNodeIndex) {
+    if (textNodeIndex === 0) {
+    }
     if (textNodeIndex === 9) {
-        setTimeout(() => {      //this timeout is to wait and then fade in the text container
-            containerElement.style.transition = 'opacity 1500ms';
-            containerElement.style.opacity = 0;
-        }, 1000);
+        containerElement.style.transition = 'opacity 1500ms';
+        containerElement.style.opacity = 0;
+        setTimeout(() => {
+            containerElement.remove();
+        }, 1500);
     }
     else {
         const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
@@ -85,7 +88,7 @@ const textNodes = [
     },
     {
         id: 3,
-        text: "No I didn't! ... Did I leave that label on it?",
+        text: "No I didn't! ... Wait, did I leave that label on it?",
         options: [
             {
                 text: "Yes.",
