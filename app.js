@@ -1,8 +1,8 @@
+import { runShowcase } from './showcase.js';
+
 const containerElement = document.getElementById('container');
 const textElement = document.getElementById('main-text');
 const optionButtonsElement = document.getElementById('option-buttons');
-
-let state = {}; //empty object initially
 
 function startGame() {
     setTimeout(() => {      //this timeout is to wait and then fade in the text container
@@ -10,18 +10,25 @@ function startGame() {
         containerElement.style.opacity = 1;
     }, 3000);
 
-    state = {};
     showTextNode(0);
 }
 
 function showTextNode(textNodeIndex) {
     if (textNodeIndex === 0) {
+        containerElement.style.backgroundColor = 'rgb(45, 46, 46)';
+        containerElement.style.boxShadow = 'none';
     }
+    else {
+        containerElement.style.backgroundColor = 'white';
+        containerElement.style.boxShadow = '0 0 10px 2px';
+    }
+
     if (textNodeIndex === 9) {
         containerElement.style.transition = 'opacity 1500ms';
         containerElement.style.opacity = 0;
         setTimeout(() => {
             containerElement.remove();
+            runShowcase();
         }, 1500);
     }
     else {
@@ -43,7 +50,6 @@ function showTextNode(textNodeIndex) {
 
 function selectOption(option) {
     const nextTextNodeId = option.nextText;
-    state = Object.assign(state, option.setState);
     showTextNode(nextTextNodeId);
 }
 
