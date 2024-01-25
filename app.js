@@ -8,7 +8,7 @@ function startGame() {
     setTimeout(() => {      //this timeout is to wait and then fade in the text container
         containerElement.style.transition = 'opacity 2000ms';
         containerElement.style.opacity = 1;
-    }, 3000);
+    }, 2000);
 
     showTextNode(0);
 }
@@ -24,6 +24,9 @@ function showTextNode(textNodeIndex) {
     }
 
     if (textNodeIndex === 9) {
+        for (const child of optionButtonsElement.children) { 
+            child.disabled = true;  // disable the button to prevent multiple presses during transition.
+        }   
         containerElement.style.transition = 'opacity 1500ms';
         containerElement.style.opacity = 0;
         setTimeout(() => {
@@ -168,7 +171,7 @@ const textNodes = [
     },
     {
         id: 8,
-        text: "Let's just hope you happen to be the right person!",
+        text: "Don't worry...",
         options: [
             {
                 text: "...",
