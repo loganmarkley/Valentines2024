@@ -101,8 +101,10 @@ function phaseNumber1() {
     containerElement.style.alignItems = "center";
     containerElement.style.justifyContent = "space-evenly";
     containerElement.style.height = "90vh";
-    containerElement.style.removeProperty("box-shadow");
+    containerElement.style.boxShadow = "none";
     containerElement.style.backgroundColor = "transparent";
+
+    document.body.style.backgroundColor = "pink";
 
     topContainerElement.innerText = "I";
     middleContainerElement.innerText = "love";
@@ -110,10 +112,13 @@ function phaseNumber1() {
 
     containerElement.style.opacity = "1";
     setTimeout(() => {
+        topContainerElement.style.animation = "slideInFromLeft .5s ease-in-out";
         topContainerElement.style.opacity = "1";
         setTimeout(() => {
+            middleContainerElement.style.animation = "slideInFromLeft .5s ease-in-out";
             middleContainerElement.style.opacity = "1";
             setTimeout(() => {
+                bottomContainerElement.style.animation = "slideInFromLeft .5s ease-in-out";
                 bottomContainerElement.style.opacity = "1";
             }, 750);
         }, 750);
