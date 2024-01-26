@@ -11,13 +11,7 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    background-color: rgb(45, 46, 46);
-}
-
-@keyframes gradualColorChange {
-    to {
-        background-color: rgb(114, 205, 226);
-    }
+    background-color: rgb(38, 38, 38);
 }
 
 .container {
@@ -28,6 +22,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 10px 2px;
     opacity: 0;
+    transition: opacity 1750ms
 }
 
 .btn-grid {
@@ -45,8 +40,8 @@ body {
 }
 
 .btn {
-    background-color: rgb(37, 36, 36);
-    border: 1px solid gray;
+    background-color: rgb(85, 129, 187);
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
     padding: 5px 20px;
     color: white;
@@ -54,6 +49,12 @@ body {
 }
 
 .btn:hover {
-    border-color: black;
+    border-color: rgb(39, 39, 39);
     cursor: pointer;
 }
+
+.btn:active {
+    transform: translateY(3px);
+    opacity: 70%;
+}
+

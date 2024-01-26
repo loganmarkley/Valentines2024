@@ -1,4 +1,4 @@
-import { runShowcase } from './showcase.js';
+import { runNamePrompt } from './showcase.js';
 
 const containerElement = document.getElementById('container');
 const textElement = document.getElementById('main-text');
@@ -6,16 +6,17 @@ const optionButtonsElement = document.getElementById('option-buttons');
 
 function startGame() {
     setTimeout(() => {      //this timeout is to wait and then fade in the text container
-        containerElement.style.transition = 'opacity 2000ms';
         containerElement.style.opacity = 1;
     }, 2000);
 
     showTextNode(0);
 }
 
+var buttonPressedOnce = false;
 function showTextNode(textNodeIndex) {
+    buttonPressedOnce = false;
     if (textNodeIndex === 0) {
-        containerElement.style.backgroundColor = 'rgb(45, 46, 46)';
+        containerElement.style.backgroundColor = 'rgb(38, 38, 38)';
         containerElement.style.boxShadow = 'none';
     }
     else {
@@ -24,15 +25,8 @@ function showTextNode(textNodeIndex) {
     }
 
     if (textNodeIndex === 9) {
-        for (const child of optionButtonsElement.children) { 
-            child.disabled = true;  // disable the button to prevent multiple presses during transition.
-        }   
-        containerElement.style.transition = 'opacity 1500ms';
-        containerElement.style.opacity = 0;
-        setTimeout(() => {
-            containerElement.remove();
-            runShowcase();
-        }, 1500);
+        containerElement.remove();
+        runNamePrompt();
     }
     else {
         const textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
@@ -52,8 +46,24 @@ function showTextNode(textNodeIndex) {
 }
 
 function selectOption(option) {
-    const nextTextNodeId = option.nextText;
-    showTextNode(nextTextNodeId);
+    if (buttonPressedOnce === false) {  // only process the press if no action is occuring.
+        const nextTextNodeId = option.nextText;
+        buttonPressedOnce = true;
+        if (nextTextNodeId === 1) {
+            setTimeout(() => {
+                showTextNode(nextTextNodeId);
+            }, 600);
+        } else if (nextTextNodeId === 9) {
+            containerElement.style.opacity = 0;
+            setTimeout(() => {
+                showTextNode(nextTextNodeId);
+            }, 1750);
+        } else {
+            setTimeout(() => {
+                showTextNode(nextTextNodeId);
+            }, 250);
+        }
+    }
 }
 
 const textNodes = [

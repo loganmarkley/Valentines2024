@@ -1,0 +1,14 @@
+@keyframes rockAnimation {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    33% {
+        transform: rotateZ(-15deg);
+    }
+    67% {
+        transform: rotateZ(15deg);
+    }
+    100% {
+        transform: rotateZ(0deg);
+    }
+}
