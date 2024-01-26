@@ -58,3 +58,16 @@ body {
     opacity: 70%;
 }
 
+.ilyContainer {
+    display: flex;
+    transition: opacity 750ms;
+    width: 40%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border-color: black;
+    box-shadow: 0 0 10px 2px black;
+    background-color: rgb(181, 26, 58);
+    color: white;
+}

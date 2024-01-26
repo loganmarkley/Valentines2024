@@ -1,14 +1,19 @@
-@keyframes rockAnimation {
+@keyframes bounceAndRockAnimation {
     0% {
         transform: rotateZ(0deg);
+        transform: translateY(0px);
     }
     33% {
         transform: rotateZ(-15deg);
+    }
+    50% {
+        transform: translateY(-10px);
     }
     67% {
         transform: rotateZ(15deg);
     }
     100% {
         transform: rotateZ(0deg);
+        transform: translateY(0px);
     }
 }
