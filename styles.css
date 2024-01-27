@@ -62,7 +62,7 @@ body {
 .ilyContainer {
     display: flex;
     transition: opacity 750ms;
-    width: 40%;
+    width: 200px;
     height: auto;
     align-items: center;
     justify-content: center;

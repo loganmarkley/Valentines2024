@@ -47,7 +47,7 @@ function checkInputName() {
     if (enteredName.toLowerCase() === 'audrey' || enteredName.toLowerCase() === 'audrey forthofer') {
         document.querySelector("body div div").remove();    //removes the input box and button
         document.body.style.transition = 'background-color 1500ms';
-        document.body.style.backgroundColor = 'rgb(165, 229, 255)';
+        document.body.style.backgroundColor = 'rgb(161, 224, 237)';
 
         const containerElement = document.querySelector("body div");
         containerElement.style.transition = 'width 800ms ease-in-out, background-color 1000ms ease-in-out';
@@ -67,6 +67,7 @@ function checkInputName() {
             containerElement.style.opacity = '0';
             setTimeout(() => {
                 containerElement.remove();
+                document.body.style.backgroundColor = "pink";
                 phaseNumber1();
             }, 3000);
         }, 4000);
@@ -104,22 +105,33 @@ function phaseNumber1() {
     containerElement.style.boxShadow = "none";
     containerElement.style.backgroundColor = "transparent";
 
-    document.body.style.backgroundColor = "pink";
-
     topContainerElement.innerText = "I";
     middleContainerElement.innerText = "love";
     bottomContainerElement.innerText = "you <3";
 
     containerElement.style.opacity = "1";
     setTimeout(() => {
-        topContainerElement.style.animation = "slideInFromLeft .5s ease-in-out";
+        topContainerElement.style.animation = "slideInFromLeft 1s ease-in-out";
         topContainerElement.style.opacity = "1";
         setTimeout(() => {
-            middleContainerElement.style.animation = "slideInFromLeft .5s ease-in-out";
+            middleContainerElement.style.animation = "slideInFromLeft 1s ease-in-out";
             middleContainerElement.style.opacity = "1";
             setTimeout(() => {
-                bottomContainerElement.style.animation = "slideInFromLeft .5s ease-in-out";
+                bottomContainerElement.style.animation = "slideInFromLeft 1s ease-in-out";
                 bottomContainerElement.style.opacity = "1";
+                setTimeout(() => {
+                    containerElement.childNodes.forEach((child) => {
+                        // child.style.position = "absolute";
+                        child.style.transition = "width 500ms ease-in-out, transform 500ms ease-in-out, top 500ms ease-in-out";
+                        child.style.width = '100px';
+                    });
+                    topContainerElement.style.transform = "translateX(-110px)";
+                    bottomContainerElement.style.transform = "translateX(110px)";
+                    setTimeout(() => {
+                        topContainerElement.style.transform = 'translate(-110px, 20vh)';
+                        bottomContainerElement.style.transform = 'translate(110px, -20vh)';
+                    }, 750);
+                }, 1500);
             }, 750);
         }, 750);
     }, 1000);
@@ -129,6 +141,7 @@ function phaseNumber1() {
     containerElement.appendChild(bottomContainerElement);
     document.body.appendChild(containerElement);
 }
+
 function createPuzzle() {
     // const leftSemiCircle = document.createElement('div');
     // const rightSemiCircle = document.createElement('div');

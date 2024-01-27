@@ -20,10 +20,9 @@
 
 @keyframes slideInFromLeft {
     from {
-        left: -100%;
+        transform: translateX(-80vw);
     }
     to {
-        left: 0%;
+        transform: translateX(0%);
     }
 }
-
