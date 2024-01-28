@@ -72,3 +72,19 @@ body {
     background-color: rgb(181, 26, 58);
     color: white;
 }
+
+.petalsContainer {
+    width: 100vw;
+    height: 100vh;
+    background-color: none;
+}
+
+.rosePetal {
+    opacity: 75%;
+    top: -15vh;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    background: url(https://image.ibb.co/kyUHab/rose.png);
+    background-size: 100% 100%;
+}

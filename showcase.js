@@ -111,13 +111,13 @@ function phaseNumber1() {
 
     containerElement.style.opacity = "1";
     setTimeout(() => {
-        topContainerElement.style.animation = "slideInFromLeft 1s ease-in-out";
+        topContainerElement.style.animation = "slideInFromLeft .6s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
         topContainerElement.style.opacity = "1";
         setTimeout(() => {
-            middleContainerElement.style.animation = "slideInFromRight 1s ease-in-out";
+            middleContainerElement.style.animation = "slideInFromRight .6s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
             middleContainerElement.style.opacity = "1";
             setTimeout(() => {
-                bottomContainerElement.style.animation = "slideInFromLeft 1s ease-in-out";
+                bottomContainerElement.style.animation = "slideInFromLeft .6s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
                 bottomContainerElement.style.opacity = "1";
                 setTimeout(() => {
                     containerElement.childNodes.forEach((child) => {
@@ -129,7 +129,7 @@ function phaseNumber1() {
                     setTimeout(() => {
                         topContainerElement.style.transform = 'translate(-110px, 23vh)';
                         bottomContainerElement.style.transform = 'translate(110px, -23vh)';
-                        setTimeout(() => {
+                        setTimeout(() => {  // this timeout is for each word box to bounce up and down once
                             containerElement.childNodes.forEach((child) => { child.style.transition = "transform 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55)"; });
                             setTimeout(() => {
                                 topContainerElement.style.transform = "translate(-110px, 20vh)";
@@ -143,9 +143,9 @@ function phaseNumber1() {
                                                 bottomContainerElement.style.transform = "translate(110px, -26vh)";
                                                 setTimeout(() => {
                                                     bottomContainerElement.style.transform = "translate(110px, -23vh)";
-                                                    setTimeout(() => {
-                                                        topContainerElement.style.transition = "transform 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.55)";
-                                                        bottomContainerElement.style.transition = "transform 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+                                                    setTimeout(() => {      // this timeout is for the combination and explosion effect of the containers
+                                                        topContainerElement.style.transition = "transform 1500ms cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+                                                        bottomContainerElement.style.transition = "transform 1500ms cubic-bezier(0.68, -0.55, 0.27, 1.55)";
                                                         topContainerElement.style.transform = "translate(-140px, 23vh)";
                                                         bottomContainerElement.style.transform = "translate(140px, -23vh)";
                                                         setTimeout(() => {
@@ -167,17 +167,19 @@ function phaseNumber1() {
                                                                     middleContainerElement.style.fontSize = "24px";
                                                                     middleContainerElement.style.width = "350px";
                                                                     middleContainerElement.style.backgroundColor = "rgb(250, 201, 233)";
+                                                                    setTimeout(() => {middleContainerElement.style.animation = "enlargeAndGlow 1250ms ease-in-out 2";}, 500);
                                                                     setTimeout(() => {
                                                                         middleContainerElement.style.animation = "fadeOutDown 2000ms cubic-bezier(0.68, -0.55, 0.27, 1.55)"
                                                                         setTimeout(() => {
                                                                             containerElement.remove();
-                                                                            document.body.style.backgroundColor = "rgb(225, 230, 230)";
+                                                                            document.body.style.transition = "background-color 5000ms";
+                                                                            document.body.style.backgroundColor = "rgb(240, 220, 230)";
                                                                             phaseNumber2();
                                                                         }, 1950);
-                                                                    }, 2000);
+                                                                    }, 3500);
                                                                 }, 300);
                                                             }, 400);
-                                                        }, 1000);
+                                                        }, 1500);
                                                     }, 500);
                                                 }, 250);
                                             }, 250);
@@ -187,9 +189,9 @@ function phaseNumber1() {
                             }, 250);
                         }, 500);
                     }, 750);
-                }, 1500);
-            }, 750);
-        }, 750);
+                }, 1000);
+            }, 600);
+        }, 600);
     }, 1000);
 
     containerElement.appendChild(topContainerElement);   
@@ -199,30 +201,25 @@ function phaseNumber1() {
 }
 
 function phaseNumber2() {
-    const sampleElement = document.createElement("div");
-    sampleElement.style.color = "blue";
-    sampleElement.innerText = "Hello phase 2";
-    document.body.appendChild(sampleElement);
+    function petalsShow() {
+        const petalsContainerElement = document.createElement("div");
+
+        function createPetal (number) {
+            const petalElement = document.createElement("div");
+            petalElement.className = "rosePetal";
+            petalElement.id = number;
+            petalElement.style.left = number * 10 + "vw";
+            petalsContainerElement.appendChild(petalElement);
+        }
+
+        for (let i = -3; i < 13; i++) {  //create 16 petals (6 off screen)
+            createPetal(i);
+        }
+        document.body.appendChild(petalsContainerElement);
+
+        petalsContainerElement.childNodes.forEach((child) => {
+            setTimeout(() => { child.style.animation = "petalFallingDown1 8000ms ease-in-out infinite"; }, (Math.random() * (12000 + 1) + 0));
+        });
+    }
+    petalsShow();
 }
-
-function createPuzzle() {
-    // const leftSemiCircle = document.createElement('div');
-    // const rightSemiCircle = document.createElement('div');
-    // const square = document.createElement('div');
-
-    // leftSemiCircle.draggable = true;
-    // rightSemiCircle.draggable = true;
-    // square.draggable = true;
-
-    // leftSemiCircle.style.cursor = 'move';
-    // rightSemiCircle.style.cursor = 'move';
-    // square.style.cursor = 'move';
-
-    // document.body.appendChild(leftSemiCircle);
-}
-
-// draw both semi circles, and the square and then make them travel accross the screen
-// maybe have her drag the hearts together.
-// figure out click and drag with JS.
-
-// drag and drop into the grid would allow the heart drag and drop idea

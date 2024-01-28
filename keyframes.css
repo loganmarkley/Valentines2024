@@ -69,6 +69,19 @@
     }
 }
 
+@keyframes enlargeAndGlow {
+    0% {
+        box-shadow: 0 0 10px 2px black;
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px 5px rgb(244, 224, 224);
+    }
+    100% {
+        box-shadow: 0 0 10px 2px black;
+    }
+}
+
 @keyframes fadeOutDown {
     33% {
         transform: translateY(-10vh);
@@ -77,5 +90,20 @@
     100% {
         transform: translateY(40vh);
         opacity: 0;
+    }
+}
+
+@keyframes petalFallingDown1 {
+    0% {
+    }
+    33% {
+        transform: rotate(180deg) rotateZ(180deg) translateX(-20vw);
+    }
+    66% {
+        transform: rotate(0deg) rotateZ(0deg) translateY(5vh);
+    }
+    100% {
+        top: 102vh;
+        transform: translateX(20vw);
     }
 }
