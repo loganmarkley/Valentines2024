@@ -54,7 +54,7 @@ function checkInputName() {
         containerElement.style.width = '40%';
         containerElement.style.backgroundColor = 'rgb(226, 71, 103)';
         setTimeout(() => {
-            containerElement.style.animation = 'bounceAndRockAnimation 1.5s ease-in-out 4';
+            containerElement.style.animation = 'bounceAndRockAnimation 1.2s ease-in-out 4';
         }, 1000);
         
         const labelElement = document.querySelector("body div label");
@@ -63,14 +63,14 @@ function checkInputName() {
         labelElement.innerText = "My girl is here!";
         
         setTimeout(() => {  //after the rocking ends, send her on to the next phase!
-            containerElement.style.transition = 'opacity 2000ms ease-in-out';
+            containerElement.style.transition = 'opacity 1000ms ease-in-out';
             containerElement.style.opacity = '0';
             setTimeout(() => {
                 containerElement.remove();
                 document.body.style.backgroundColor = "pink";
                 phaseNumber1();
-            }, 3000);
-        }, 4000);
+            }, 1500);
+        }, 3800);
         
     } else {
         const labelElement = document.querySelector("body div label");
@@ -114,22 +114,78 @@ function phaseNumber1() {
         topContainerElement.style.animation = "slideInFromLeft 1s ease-in-out";
         topContainerElement.style.opacity = "1";
         setTimeout(() => {
-            middleContainerElement.style.animation = "slideInFromLeft 1s ease-in-out";
+            middleContainerElement.style.animation = "slideInFromRight 1s ease-in-out";
             middleContainerElement.style.opacity = "1";
             setTimeout(() => {
                 bottomContainerElement.style.animation = "slideInFromLeft 1s ease-in-out";
                 bottomContainerElement.style.opacity = "1";
                 setTimeout(() => {
                     containerElement.childNodes.forEach((child) => {
-                        // child.style.position = "absolute";
                         child.style.transition = "width 500ms ease-in-out, transform 500ms ease-in-out, top 500ms ease-in-out";
                         child.style.width = '100px';
                     });
                     topContainerElement.style.transform = "translateX(-110px)";
                     bottomContainerElement.style.transform = "translateX(110px)";
                     setTimeout(() => {
-                        topContainerElement.style.transform = 'translate(-110px, 20vh)';
-                        bottomContainerElement.style.transform = 'translate(110px, -20vh)';
+                        topContainerElement.style.transform = 'translate(-110px, 23vh)';
+                        bottomContainerElement.style.transform = 'translate(110px, -23vh)';
+                        setTimeout(() => {
+                            containerElement.childNodes.forEach((child) => { child.style.transition = "transform 250ms cubic-bezier(0.68, -0.55, 0.27, 1.55)"; });
+                            setTimeout(() => {
+                                topContainerElement.style.transform = "translate(-110px, 20vh)";
+                                setTimeout(() => {
+                                    topContainerElement.style.transform = "translate(-110px, 23vh)";
+                                    setTimeout(() => {
+                                        middleContainerElement.style.transform = "translateY(-3vh)";
+                                        setTimeout(() => {
+                                            middleContainerElement.style.transform = "translateY(0)";
+                                            setTimeout(() => {
+                                                bottomContainerElement.style.transform = "translate(110px, -26vh)";
+                                                setTimeout(() => {
+                                                    bottomContainerElement.style.transform = "translate(110px, -23vh)";
+                                                    setTimeout(() => {
+                                                        topContainerElement.style.transition = "transform 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+                                                        bottomContainerElement.style.transition = "transform 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+                                                        topContainerElement.style.transform = "translate(-140px, 23vh)";
+                                                        bottomContainerElement.style.transform = "translate(140px, -23vh)";
+                                                        setTimeout(() => {
+                                                            middleContainerElement.style.zIndex = 99;
+                                                            topContainerElement.style.transition = "transform 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+                                                            bottomContainerElement.style.transition = "transform 1000ms cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+                                                            topContainerElement.style.transform = "translate(-30px, 23vh)";
+                                                            bottomContainerElement.style.transform = "translate(30px, -23vh)";
+                                                            setTimeout(() => {
+                                                                middleContainerElement.style.animation = 'brightenAndExplode 600ms';
+                                                                document.body.style.backgroundColor = "rgb(226, 71, 103)";
+                                                                setTimeout(() => {
+                                                                    topContainerElement.remove();
+                                                                    bottomContainerElement.remove();
+                                                                    middleContainerElement.style.color = "rgb(40, 40, 40)";
+                                                                    middleContainerElement.style.fontFamily = "Dosis, sans-serif";
+                                                                    middleContainerElement.innerText = "I love you Audrey!";
+                                                                    middleContainerElement.style.transition = "font-size 1000ms ease-in-out width 1000ms ease-in-out background-color 1000ms ease-in-out";
+                                                                    middleContainerElement.style.fontSize = "24px";
+                                                                    middleContainerElement.style.width = "350px";
+                                                                    middleContainerElement.style.backgroundColor = "rgb(250, 201, 233)";
+                                                                    setTimeout(() => {
+                                                                        middleContainerElement.style.animation = "fadeOutDown 2000ms cubic-bezier(0.68, -0.55, 0.27, 1.55)"
+                                                                        setTimeout(() => {
+                                                                            containerElement.remove();
+                                                                            document.body.style.backgroundColor = "rgb(225, 230, 230)";
+                                                                            phaseNumber2();
+                                                                        }, 1950);
+                                                                    }, 2000);
+                                                                }, 300);
+                                                            }, 400);
+                                                        }, 1000);
+                                                    }, 500);
+                                                }, 250);
+                                            }, 250);
+                                        }, 250);
+                                    }, 250);
+                                }, 250);
+                            }, 250);
+                        }, 500);
                     }, 750);
                 }, 1500);
             }, 750);
@@ -140,6 +196,13 @@ function phaseNumber1() {
     containerElement.appendChild(middleContainerElement);   
     containerElement.appendChild(bottomContainerElement);
     document.body.appendChild(containerElement);
+}
+
+function phaseNumber2() {
+    const sampleElement = document.createElement("div");
+    sampleElement.style.color = "blue";
+    sampleElement.innerText = "Hello phase 2";
+    document.body.appendChild(sampleElement);
 }
 
 function createPuzzle() {
