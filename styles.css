@@ -10,7 +10,7 @@ body {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 100svh;
     background-color: rgb(38, 38, 38);
     overflow: hidden !important;
 }
