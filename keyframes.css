@@ -110,16 +110,13 @@
 
 @keyframes petalFallingDown1 {
     33% {
-        -webkit-transform: rotate(180deg) rotateZ(180deg) translateX(-20vw);
-        transform: rotate(180deg) rotateZ(180deg) translateX(-20vw);
+        transform: rotate(180deg) translateX(-20vw);
     }
     66% {
-        -webkit-transform: rotate(0deg) rotateZ(0deg) translateY(5vh);
-        transform: rotate(0deg) rotateZ(0deg) translateY(5vh);
+        transform: rotate(0deg) translateY(5svh);
     }
     100% {
-        top: 102vh;
-        -webkit-transform: translateX(20vw);
+        top: 102svh;
         transform: translateX(20vw);
     }
 }
