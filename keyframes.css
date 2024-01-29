@@ -93,30 +93,34 @@
     }
 }
 
-/* @keyframes petalFallingDown1 {
-    0% {
-    }
-    33% {
-        transform: rotate(180deg) rotateZ(180deg) translateX(-20vw);
-    }
-    66% {
-        transform: rotate(0deg) rotateZ(0deg) translateY(5vh);
-    }
-    100% {
-        top: 102vh;
-        transform: translateX(20vw);
-    }
-} */
-
 @keyframes petalFallingDown1 {
-    33% {
-        transform: rotate(180deg) translateX(-20vw);
+    40% {
+        transform: rotate(180deg) translateX(-30vw);
     }
-    66% {
-        transform: rotate(0deg) translateY(5svh);
+    70% {
+        transform: rotate(0deg) translateX(18vw) translateY(-5svh);
+    }
+    80% {
+        transform: rotate(70deg) translateX(-8vw);
     }
     100% {
-        top: 102svh;
-        transform: translateX(20vw);
+        top: 101svh;
+        transform: rotate(20deg) translateX(5vw);
+    }
+}
+
+@keyframes petalFallingDown2 {
+    20% {
+        transform: rotate(180deg) translateX(10vw);
+    }
+    50% {
+        transform: rotate(0deg) translateX(18vw) translateY(-3svh);
+    }
+    70% {
+        transform: rotate(70deg) translateX(-8vw) translateY(5svh);
+    }
+    100% {
+        top: 101svh;
+        transform: rotate(20deg) translateX(-5vw);
     }
 }

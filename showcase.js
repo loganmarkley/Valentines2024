@@ -107,7 +107,7 @@ function phaseNumber1() {
 
     topContainerElement.innerText = "I";
     middleContainerElement.innerText = "love";
-    bottomContainerElement.innerText = "you <3";
+    bottomContainerElement.innerText = "you 💛";
 
     containerElement.style.opacity = "1";
     setTimeout(() => {
@@ -208,17 +208,23 @@ function phaseNumber2() {
             const petalElement = document.createElement("div");
             petalElement.className = "rosePetal";
             petalElement.id = number;
-            petalElement.style.left = number * 10 + "vw";
+            petalElement.style.left = number * 5 + "vw";
             petalsContainerElement.appendChild(petalElement);
         }
 
-        for (let i = -3; i < 13; i++) {  //create 16 petals (6 off screen)
+        for (let i = -5; i < 25; i++) {  //create 30 petals
             createPetal(i);
         }
         document.body.appendChild(petalsContainerElement);
 
-        petalsContainerElement.childNodes.forEach((child) => {
-            setTimeout(() => { child.style.animation = "petalFallingDown1 8000ms ease-in-out infinite"; }, (Math.random() * (12000 + 1) + 0));
+        petalsContainerElement.childNodes.forEach((child, index) => {
+            let randomTimeoutTime = Math.random() * (12500 - 0 + 1) + 0;    //random time at which the petal starts falling (btwn 0 and 12500)
+            let randomAnimationTime = Math.random() * (12500 - 7500 + 1) + 7500;    //random animation time between 7500 and 12500 ms
+            if (index % 2 === 0) {
+                setTimeout(() => { child.style.animation = "petalFallingDown1 " + randomAnimationTime + "ms ease-in-out infinite"; }, randomTimeoutTime);
+            } else {
+                setTimeout(() => { child.style.animation = "petalFallingDown2 " + randomAnimationTime + "ms ease-in-out infinite"; }, randomTimeoutTime);
+            }
         });
     }
     petalsShow();
