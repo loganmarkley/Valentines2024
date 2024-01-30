@@ -107,7 +107,7 @@ function phaseNumber1() {
 
     topContainerElement.innerText = "I";
     middleContainerElement.innerText = "love";
-    bottomContainerElement.innerText = "you 💛";
+    bottomContainerElement.innerText = "you <3";
 
     containerElement.style.opacity = "1";
     setTimeout(() => {
@@ -202,6 +202,8 @@ function phaseNumber1() {
 
 function phaseNumber2() {
     function petalsShow() {
+        setTimeout(() => { document.body.style.animation = "twoBackgroundColors 5000ms ease-in-out infinite"; }, 6000 );    // set the background to start swapping colors 1s after the initial change
+        
         const petalsContainerElement = document.createElement("div");
 
         function createPetal (number) {
@@ -220,6 +222,9 @@ function phaseNumber2() {
         petalsContainerElement.childNodes.forEach((child, index) => {
             let randomTimeoutTime = Math.random() * (12500 - 0 + 1) + 0;    //random time at which the petal starts falling (btwn 0 and 12500)
             let randomAnimationTime = Math.random() * (12500 - 7500 + 1) + 7500;    //random animation time between 7500 and 12500 ms
+            let randomOpacity = Math.random() * (75 - 55 + 1) + 55;    //random opacity between 55 and 75
+
+            child.style.opacity = randomOpacity + "%";
             if (index % 2 === 0) {
                 setTimeout(() => { child.style.animation = "petalFallingDown1 " + randomAnimationTime + "ms ease-in-out infinite"; }, randomTimeoutTime);
             } else {
@@ -227,5 +232,36 @@ function phaseNumber2() {
             }
         });
     }
+
+    function willYouBeMyValentine() {
+        const valentinesCardElement = document.createElement("div");
+        valentinesCardElement.className = "valentinesCard";
+
+        const textElement = document.createElement("div");
+        const textElement1 = document.createElement("div");
+        const textElement2 = document.createElement("div");
+
+        textElement.className = "cardWords";
+        textElement1.className = "cardWords";
+        textElement2.className = "cardWords";
+
+        textElement.innerText = "Audrey, Will"
+        textElement1.innerText = "You Be My"
+        textElement2.innerText = "Valentine?"
+
+        setTimeout(() => {
+            valentinesCardElement.style.transform = "scale(1)";
+            setTimeout(() => {
+                valentinesCardElement.style.animation = "enlargeThenReturn 3000ms ease-in-out infinite";
+            }, 1500);
+        }, 7500);
+
+        valentinesCardElement.appendChild(textElement);
+        valentinesCardElement.appendChild(textElement1);
+        valentinesCardElement.appendChild(textElement2);
+        document.body.appendChild(valentinesCardElement);
+    }
+
     petalsShow();
+    willYouBeMyValentine();
 }

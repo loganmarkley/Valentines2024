@@ -124,3 +124,15 @@
         transform: rotate(20deg) translateX(-5vw);
     }
 }
+
+@keyframes twoBackgroundColors {
+    50% {
+        background-color: rgb(255, 220, 230);
+    }
+}
+
+@keyframes enlargeThenReturn {
+    50% {
+        transform: scale(1.05);
+    }
+}
