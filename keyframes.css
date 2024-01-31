@@ -136,3 +136,18 @@
         transform: scale(1.05);
     }
 }
+
+@keyframes glowRedAndEnlarge {
+    33% {
+        transform: rotate(3deg);
+    }
+    50% {
+        text-shadow: 0px 0px 15px rgb(181, 26, 58);
+        /* transform: scale(1.05); */
+    }
+    67% {
+        transform: rotate(-4deg);
+    }
+}
+
+@keyframes 

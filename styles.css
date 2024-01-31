@@ -97,19 +97,24 @@ body {
     height: 450px;
     max-height: 75svh;
     background-color: rgb(255, 99, 148);
+    background-image: url('cardBackground.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     opacity: 96%;
     border-radius: 30px;
     border: 2px solid rgb(33, 33, 33);
-    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    transition: transform 1500ms cubic-bezier(1,.04,.52,1.54);
+    transition: transform 1750ms cubic-bezier(1,.04,.52,1.54);
     transform: scale(0);
 }
 
 .cardWords {
-    font-size: 36px;
+    position: absolute;
+    font-size: 26px;
     font-style: italic;
     text-shadow: 0px 0px 10px white;
+    color: rgb(70, 73, 82);
 }

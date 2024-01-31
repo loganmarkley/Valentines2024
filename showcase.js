@@ -240,25 +240,37 @@ function phaseNumber2() {
         const textElement = document.createElement("div");
         const textElement1 = document.createElement("div");
         const textElement2 = document.createElement("div");
+        const textElement3 = document.createElement("div");
 
         textElement.className = "cardWords";
         textElement1.className = "cardWords";
         textElement2.className = "cardWords";
+        textElement3.className = "cardWords";
 
-        textElement.innerText = "Audrey, Will"
-        textElement1.innerText = "You Be My"
-        textElement2.innerText = "Valentine?"
+        textElement.innerText = "Audrey,";
+        textElement1.innerText = "Will You Be My";
+        textElement2.innerText = "Valentine?";
+        textElement3.innerText = "- Logan 💘";
+
+        textElement.style = "font-size: 46px; top: 3%; left: 25%";
+        textElement1.style = "font-size: 20px; top: 51%; left: 5%";
+        textElement2.style.fontSize = "28px";
+        textElement2.style.top = "66%";
+        textElement2.style.left = "18%";
+        textElement3.style = "top: 87%; left: 49%";
 
         setTimeout(() => {
             valentinesCardElement.style.transform = "scale(1)";
             setTimeout(() => {
                 valentinesCardElement.style.animation = "enlargeThenReturn 3000ms ease-in-out infinite";
-            }, 1500);
-        }, 7500);
+                textElement2.style.animation = "glowRedAndEnlarge 3000ms ease-in-out infinite";
+            }, 1750);
+        }, 10000);
 
         valentinesCardElement.appendChild(textElement);
         valentinesCardElement.appendChild(textElement1);
         valentinesCardElement.appendChild(textElement2);
+        valentinesCardElement.appendChild(textElement3);
         document.body.appendChild(valentinesCardElement);
     }
 
